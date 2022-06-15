@@ -78,7 +78,8 @@ function render(variables = {}) {
           <h2>${role}</h2>
           <h3>${city}, ${country}</h3>
             <ul class=${SMPosition}>
-            <li>${twitter}<li class="fa fa-twitter"></i></a></li>
+        
+            <li>${twitter} <li class="fa-brands fa-twitter"></i></a></li>
             <li>${github}<li class="fa fa-github"></i></a></li>
             <li>${linkedin}<li class="fa fa-linkedin"></i></a></li>
             <li>${instagram}<li class="fa fa-instagram"></i></a></li>
