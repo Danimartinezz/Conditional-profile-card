@@ -30,10 +30,10 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
   //**Name*/
   let name = `${variables.name}`;
-  if (variables.name == null) name = "<h1></h1>";
+  if (variables.name == null) name = "<h1>Name And Last Name</h1>";
   //**Last name */
   let lastname = `${variables.lastname}`;
-  if (variables.lastname == null) lastname = "<h1></h1>";
+  if (variables.lastname == null) lastname = "";
   /**position S.M. */
   let SMPosition = "position-left";
   if (variables.socialMediaPosition == null) SMPosition = "position-right";
@@ -59,30 +59,29 @@ function render(variables = {}) {
 
   /**Role */
   let role = `${variables.role}`;
-  if (variables.role == null) role = "<h2></h2>";
+  if (variables.role == null) role = "<h2>Web developer</h2>";
 
   /**city */
   let city = `${variables.city}`;
-  if (variables.city == null) city = "<h3></h3>";
+  if (variables.city == null) city = "<h3>Miami,USA</h3>";
 
   /**country */
   let country = `${variables.country}`;
-  if (variables.country == null) country = "<h3></h3>";
+  if (variables.country == null) country = "";
 
   // reset the website body with the new html output
 
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${name} ${lastname}</h1>
+          <h1>${name}${lastname}</h1>
           <h2>${role}</h2>
-          <h3>${city}, ${country}</h3>
+          <h3>${city} ${country}</h3>
             <ul class=${SMPosition}>
-        
-            <li>${twitter} <li class="fa fa-twitter"></i></a></li>
-            <li>${github}<li class="fa fa-github"></i></a></li>
-            <li>${linkedin}<li class="fa fa-linkedin"></i></a></li>
-            <li>${instagram}<li class="fa fa-instagram"></i></a></li>
+            <li>${twitter} <li class="fab fa-twitter"></i></a></li>
+            <li>${github}<li class="fab fa-github"></i></a></li>
+            <li>${linkedin}<li class="fab fa-linkedin"></i></a></li>
+            <li>${instagram}<li class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
