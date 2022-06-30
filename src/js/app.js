@@ -23,69 +23,33 @@ import "../style/index.css";
     }
  */
 function render(variables = {}) {
-  console.log("These are the current variables: ", variables); //print on the console
+  // console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-  //**Name*/
-  let name = `${variables.name}`;
-  if (variables.name == null) name = "<h1>Name And Last Name</h1>";
-  //**Last name */
-  let lastname = `${variables.lastname}`;
-  if (variables.lastname == null) lastname = "";
-  /**position S.M. */
-  let SMPosition = "position-left";
-  if (variables.socialMediaPosition == null) SMPosition = "position-right";
-  else if (variables.socialMediaPosition == "position-right")
-    SMPosition = "position-right";
-
-  /**twitter */
-  let twitter = `<a href="https://twitter.com/${variables.twitter}">`;
-  if (variables.twitter == null) twitter = "<a>";
-
-  /**github */
-  let github = `<a href="https://github.com/${variables.github}">`;
-  if (variables.github == "alesanchezr") github = "<a>";
-
-  /**linkedin */
-  /**linkedin */
-  let linkedin = `<a href="https://linkedin.com/${variables.linkedin}">`;
-  if (variables.linkedin == null) linkedin = "<a>";
-
-  /**instagram */
-  let instagram = `<a href="https://instagram.com/${variables.instagram}">`;
-  if (variables.instagram == null) instagram = "<a>";
-
-  /**Role */
-  let role = `${variables.role}`;
-  if (variables.role == null) role = "<h2>Web developer</h2>";
-
-  /**city */
-  let city = `${variables.city}`;
-  if (variables.city == null) city = "<h3>Miami,USA</h3>";
-
-  /**country */
-  let country = `${variables.country}`;
-  if (variables.country == null) country = "";
-
-  // reset the website body with the new html output
+  if (variables.name == null) variables.name = "Name";
+  if (variables.lastname == null) variables.lastname = "Last Name";
+  if (variables.role == null) variables.role = "Role";
+  if (variables.city == null) variables.city = "City";
+  if (variables.country == null) variables.country = "Country";
 
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${name}${lastname}</h1>
-          <h2>${role}</h2>
-          <h3>${city} ${country}</h3>
-            <ul class=${SMPosition}>
-            <li>${twitter} <li class="fab fa-twitter"></i></a></li>
-            <li>${github}<li class="fab fa-github"></i></a></li>
-            <li>${linkedin}<li class="fab fa-linkedin"></i></a></li>
-            <li>${instagram}<li class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name} ${variables.lastname}</h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city} ${variables.country}</h3>
+          <ul class=${variables.socialMediaPosition}>
+            <li><a href="https://twitter.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
 }
+
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
